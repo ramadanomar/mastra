@@ -1,5 +1,38 @@
 # @mastra/playground-ui
 
+## 26.1.0-alpha.0
+
+### Minor Changes
+
+- **Added** `MainSidebar.NavLabel` — collapse-aware label slot for `asChild` nav items. When the sidebar collapses to icon-only mode, the label hides via `VisuallyHidden` (still announced by screen readers) instead of leaking outside the 36px icon rail. The default `link={...}` path was already collapse-aware; `asChild` consumers now have a matching primitive. ([#16167](https://github.com/mastra-ai/mastra/pull/16167))
+
+  ```tsx
+  // Before: text leaked visually when the sidebar collapsed
+  <MainSidebar.NavLink asChild>
+    <button>
+      <Bot />
+      Agents
+    </button>
+  </MainSidebar.NavLink>
+
+  // After: wrap labels in MainSidebar.NavLabel
+  <MainSidebar.NavLink asChild>
+    <button>
+      <Bot />
+      <MainSidebar.NavLabel>Agents</MainSidebar.NavLabel>
+    </button>
+  </MainSidebar.NavLink>
+  ```
+
+  **Improved** truncation handling for nav items and section headers. Long labels now clip with a single-line ellipsis instead of wrapping to a second line during the collapse/expand transition, eliminating layout jumps at narrow widths.
+
+### Patch Changes
+
+- Updated dependencies [[`ac47842`](https://github.com/mastra-ai/mastra/commit/ac478427aa7a5f5fdaed633a911218689b438c60)]:
+  - @mastra/core@1.32.2-alpha.0
+  - @mastra/client-js@1.17.2-alpha.0
+  - @mastra/react@0.2.36-alpha.0
+
 ## 26.0.1
 
 ### Patch Changes

@@ -139,6 +139,9 @@
     "@mastra/vercel": "0.1.0"
   },
   "changesets": [
-    "green-birds-knock"
+    "automated-provider-registry-20260505-070037",
+    "green-birds-knock",
+    "inngest-deployment-non-api-path",
+    "sidebar-truncate-and-nav-label"
   ]
 }
